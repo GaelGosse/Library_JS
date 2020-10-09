@@ -1,7 +1,12 @@
-'use strict';
-document.addEventListener('DOMContentLoaded', function library(){
-    
-    // ENCODE ALPHABET
+(function(window){
+  // You can enable the strict mode commenting the following line  
+  //  'use strict';
+
+  // This function will contain all our code
+  function myLibrary(){
+    var _myLibraryObject = {};
+
+    // We will add functions to our library here !
     var alpha = {
         a: 1,
         à: 2,
@@ -45,16 +50,16 @@ document.addEventListener('DOMContentLoaded', function library(){
     
     // ERROR MESSAGE
     var startError = '%c';
-    var error = 'background: crimson; color: #fff; padding: 0 10%'
-    var warning = 'background: darkorange; color: #fff; padding: 0 10%'
-    var miss = 'background: gold ; color: #000; padding: 0 10%'
+    var error = 'background: crimson; color: #fff; padding: 0 10%';
+    var warning = 'background: darkorange; color: #fff; padding: 0 10%';
+    var miss = 'background: gold ; color: #000; padding: 0 10%';
     
-    // ZONE TEST //
+    // VAR TEST //
     var array1 = { "clé1" : "valeur1", "clé2" : "valeur2", "clé3": "valeur3", "clé4": "valeur4" };    
     var tab1 = ['hello', '5', 'thank', 'hello', 5, 'thanks', 'hello', true, 'the last'];
     var tab2 = ['hello', 'bye'];
     var tab3 = ['hello', 3];
-    var tab4 = ['cognitif', 'aussi', 'bonjour'];
+    var tab4 = ['mississipi', 'eternelement', 'bonjour'];
     var tab5 = [];
     var tab6 = [];
 
@@ -76,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function library(){
     }
     var audi = new voiture('audi', 'a1', 40000)
     
-    var para = 'Dans le deuxième je me souviens être comme sur la corniche à Marseille mixé avec un peu des roches d’Orival, le tout en bordure de mer ; les roches étaient sûrement plus éloigné avec un peu de foret aussi mais peut-être un peu plus proche. Les maisons, elles, avaient le style normand, blanc et marron (poutres). La vision de la scène est de telle sorte que la mer est ma droite et la terre est ma gauche, je me déplace à un moment pour me retrouver face à une porte de maison, j’aurai donc la mer dans le dos. Je me souviens longer les roches de la corniche. Ça devait être le soir, le ciel bleu clair commençait à se foncer, quand d’un seul coup, je vis le ciel rougir à un endroit précis puis une seconde après une explosion bien visible au loin, avec comme de petits éclats de feu d’artifice. Elle se répète pour arriver encore plus grosse et avec donc beaucoup plus d’éclats, on dirait presque qu’il y avait un feu d’artifice par-dessus. L’image était très nette et sublime. Je devais être en voiture mais comme si j’avais à la place des yeux à ce moment-là, une GoPro 360°, je devais me trouver dans une voiture avec des gens peut-être, elle finit par s ‘arrêter (je ne m’en souviens presque pas).';
-    var texte = 'Dans le deuxième je me souviens être comme sur la corniche à Marseille mixé avec un peu des roches d’Orival';
+    var para = 'Le militaire regagna sa voiture et la barrière s’ouvrit. David regardait autour de lui, la base militaire où il avait passé dix mois de sa vie. Il n’y avait pas beaucoup de changement. L’herbe toujours aussi bien tondue, les allées toujours aussi propres. Les mêmes bâtiments. Juste les décors avaient changés. Il s’agissait de chars. C’étaient les chars que David avait eu l’occasion de voir fonctionner et qui, maintenant, avaient remplacés les vieux chars qui servaient de décors. Cela fit sourire David.';
+      
     var mot = 'aussi'
     
     var var1 = 'hello';
@@ -92,20 +97,18 @@ document.addEventListener('DOMContentLoaded', function library(){
     var max = 0;
     var char = '';
     
-    // FIN DE ZONE TEST
+    // FIN DE VAR TEST
     
     
     
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX TAB ARRAY XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */ 
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+    /* TAB ARRAY */ 
     // return the length of a associative array
-    function array_length(arr){
+    _myLibraryObject.array_length = function(arr){
         return Object.keys(arr).length;
     }
     
     // swap keys and values in array
-    function array_flip(arr){
+    _myLibraryObject.array_flip = function(arr){
         tab1 = [];
         tab2 = [];
         tab1 = Object.keys(arr);
@@ -117,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function library(){
     }
     
     // Return true if a key exists in a array
-    function array_key_exists(tab, key){
+    _myLibraryObject.array_key_exists = function(tab, key){
         for(var i = 0; i < tab.length; i++){
             if(tab[i] == key){
                 return true;
@@ -129,19 +132,19 @@ document.addEventListener('DOMContentLoaded', function library(){
     }
     
     // Return first key of assiociative array
-    function array_key_first(arr){
+    _myLibraryObject.array_key_first = function(arr){
         tab1 = Object.keys(arr);
         return tab1[0]
     }
     
     // Return last key of assiociative array
-    function array_key_last(arr){
+    _myLibraryObject.array_key_last = function(arr){
         tab1 = Object.keys(arr);
         return tab1[Object.keys(arr).length-1]
     }
     
     // Search a word in array : return the position of the value if it's found
-    function array_search(word, arr){
+    _myLibraryObject.array_search = function(word, arr){
         tab1 = Object.keys(arr);
         tab2 = [];
         count = 0;
@@ -161,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function library(){
     }
     
     // Return every type of var in array
-    function array_type_of_var(arr){ 
+    _myLibraryObject.array_type_of_var = function(arr){ 
         var type = [];
         for(let i = 0; i < arr.length; i++){
             if(array_key_exists(type, typeof arr[i])){
@@ -175,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function library(){
     }
     
     // Return if this is an object : array or object
-    function type_of_array(array){
+    _myLibraryObject.type_of_array = function(array){
         if(typeof array == 'object'){
             if(array[0] == null){
                 return 'object'
@@ -189,11 +192,7 @@ document.addEventListener('DOMContentLoaded', function library(){
         }
     }
     
-    function in_array(){
-        
-    }
-    
-    function sum_array(arr){
+    _myLibraryObject.sum_array = function(arr){
         var sum = arr[0];
         for(let i = 1; i < arr.length; i++){
             sum += arr[i];
@@ -201,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function library(){
         return sum;
     }
     
-    function multi_array(arr){
+    _myLibraryObject.multi_array = function(arr){
         var multi = arr[0];
         for(let i = 1; i < arr.length; i++){
             if(arr[i] !== 0){
@@ -210,37 +209,10 @@ document.addEventListener('DOMContentLoaded', function library(){
         }
         return multi;
     }
-    function toArray(obj) {
-        let tabKeys = [];
-        let tabValue = [];
-        let tabSmall = [];
-        let tabFinal = [];
-        let x;
-
-        // SET KEYS & VALUE
-        tabKeys = Object.keys(obj)
-        for(x in tabKeys){
-            tabValue.push(obj[tabKeys[x]])
-        }
-
-        // SET TAB IN TAB
-        for(x in tabKeys){
-            tabSmall = [];
-
-            tabSmall[0] = tabKeys[x]
-            tabSmall[1] = tabValue[x]
-
-            tabFinal.push(tabSmall)
-        }
-
-        return tabFinal;
-    }
     
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX TEXTE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+    /* TEXTE */
     // Explode : return words of texte in array
-    function explode(txt){
+    _myLibraryObject.explode = function(txt){
         var start = 0;
         tab1 = [];
         
@@ -250,12 +222,12 @@ document.addEventListener('DOMContentLoaded', function library(){
                 start = i+1;
             }
         }
-//      tab1.push(char.substr(start, i - start-1));
+        tab1.push(char.substr(start, i - start-1));
         return tab1;
      }
     
-    // Return the pos of the elements
-    function text_search(word, txt){ 
+    // input word which is search and txt : Return the pos of the elements
+    _myLibraryObject.text_search = function(word, txt){ 
         var start = 0; // first pos of a word
         char = ''; // char which is moved with ite 
         tab1 = []; // storage the start pos of th word
@@ -269,31 +241,28 @@ document.addEventListener('DOMContentLoaded', function library(){
                 start = i+1;
             }
         }
+        console.log('xxx')
         return tab1;
     }
     
-    // Count total number of words in text // find another method to count word with letters
-    function count_word(txt){
+    // Count total number of words in text
+    _myLibraryObject.count_word = function(txt){
         var start = 0; // first pos of a word
         char = ''; // char which is moved with ite 
         count = 0; // var counter 
         
         for(var i = 0; i <= txt.length; i++){
-            if(txt.charAt(i) == ' '  || txt.charAt(i) == ';' || txt.charAt(i) == '.' || txt.charAt(i) == ', ' || txt.charAt(i) == '/' || i == txt.length || txt.charAt(i) == '’'){
+            if(txt.charAt(i) == ' '  || txt.charAt(i) == ';' || txt.charAt(i) == '.' || txt.charAt(i) == ',' || txt.charAt(i) == '/' || i == txt.length || txt.charAt(i) == '’'){
                 char = txt.substr(start, (i - start) );
                 count++;
                 start = i+1;
             }
-            if(txt.length == i && txt.charAt(i-1) == '.'){
-                count--;
-            }
         }
         return count;
     }
-    console.log(count_word("it is an online gaming platform where you can play and earn chips like in an online casino but without putting real money into it. This project aims to be implemented and tested in order to one day be able to launch it as a real and legal gambling platform. It provides the creation of an account, the connection, the disconnection and the deletion of the account in question. It will be possible to consult its available tokens and its game statistics there. The first game available on this platform is a slot machine. Pure game of chance to try to win chips by placing a bet. An administrator part will be available to add or remove games or players on the platform, it will also allow you to see the full profile of the players, and the profitability of the games. The main objective is to entertain users, and also in a secondary plan to be able to test the platform in its entirety before inserting the possibility of deposit and real money games much later. The programming languages used are javascript, php and sql."))
     
     // Count occurence of one word in a text
-    function count_one_word(word, txt){
+    _myLibraryObject.count_one_word = function(word, txt){
         var start = 0; // first pos of a word
         char = ''; // char which is moved with ite 
         count = 0; // count number of word
@@ -310,13 +279,8 @@ document.addEventListener('DOMContentLoaded', function library(){
         return count;
     }
     
-    
-    function mb_substr_count(){ // nbr occurence sous chaines 'es' / 'est'
-        
-    }
-    
     // convert letters of a word into digits
-    function w2d(word){
+    _myLibraryObject.word2digits = function(word){
         tab1 = [];
         tab2 = [];
         tab1 = Object.keys(alpha);
@@ -330,44 +294,25 @@ document.addEventListener('DOMContentLoaded', function library(){
         }
         return tab2
     }
-
-    // delete double elmt in array
-    function doubleInArray(){
-        
-    }
     
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX MATHS XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    // isInteger
-    function isInteger(a){
-        if(typeof(a) == 'number'){
-            if(parseInt(a) == a){
-                return true
-            }
-        }
-    }
-    
-    function factorial(a){
+    /* MATHS */
+    _myLibraryObject.factorial = function(a){
         var result = 1;
         for(let i = 1; i <= a; i++){
             result = i * result;
         }
         return result
     }  
-
+    
     // rounded
-    function rounded(nbr, decimal){
+    _myLibraryObject.rounded = function(nbr, decimal){
         let part = 10**decimal;
         return Math.floor(nbr * part)/part;
     }
-
-    function toDegree(radian) {
-        return Math.round(radian * (180 / Math.PI))
-    }
     
     // persistence
-    function explode_nbr(nbr){
+        
+    _myLibraryObject.explode_nbr = function(nbr){
         let count = nbr.toString().length-1;
         let tmp = 0;
         let sub = 0;
@@ -383,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function library(){
         
     }
     
-    function addPersistence(nbr){
+    _myLibraryObject.addPersistence = function(nbr){
         var pers = sum_array(explode_nbr(nbr))
         var steps = 1;
         
@@ -394,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function library(){
         return pers
     }
     
-    function multiPersistence(nbr){
+    _myLibraryObject.multiPersistence = function(nbr){
         var pers = multi_array(explode_nbr(nbr))
         var steps = 1;
         
@@ -405,41 +350,10 @@ document.addEventListener('DOMContentLoaded', function library(){
         }
         return pers
     }
-
-    // find num in string in elmts of arr and reutrn with that
-    function numInStr(arr) {
-        let i;
-        let j;
-        let char; 
-        let tab = [];
-        let nbrs = []; for(i = 0; i < 10; i++){nbrs.push(i)}
-
-        for(i = 0; i < arr.length; i++){
-            for(j = 0; j < arr[i].length; j++){
-            if(Number.isInteger(parseInt((arr[i]).charAt(j)))){
-                console.log(i)
-                tab.push(arr[i])
-            }
-        }
-
-        console.log('XXXXXXXXX')
-        }
-
-        return tab
-    }
     
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DATE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/ 
-    function strtotime(){
-        
-    }
-    
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX TRI XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+    /* TRI */
     // input : array with words => ouput : array with words sorted 
-    function sort_dictionary(a){
+    _myLibraryObject.sort_dictionary = function(a){
         function w2d(word){
             tab1 = [];
             tab2 = [];
@@ -464,13 +378,14 @@ document.addEventListener('DOMContentLoaded', function library(){
                     start = i+1;
                 }
             }
+            tab3.push(char.substr(start, i - start-1));
             return tab3;
         }
         // END FUNCTION
 
         tab3 = explode(a);
-        tab4 = []; 
-        
+        tab4 = [];
+
         // letter exception
         for(let i = 0; i < tab3.length; i++){
             if(tab3[i].length == 1){
@@ -479,87 +394,44 @@ document.addEventListener('DOMContentLoaded', function library(){
                 }
             }
         }
-
+        
         // convert word to digit
         for(let i = 0; i < tab3.length; i++){
             tab4[i] = (w2d(tab3[i]))
         }
-//        console.log(tab3)
-  //      console.log(tab4)
+        console.log(tab4)
 
-        let i = 0;
-        count = 0;
-        
-        while(true){
-            
-            count = 1 // si 1 continue
-            //loop table
-            for(let j = 0; j < tab4.length-1; j++){
-                if(tab4[j][0] > tab4[j+1][0]){
-                    tmp = tab4[j];
-                    tab4[j] = tab4[j+1];
-                    tab4[j+1] = tmp;
-                    count = 0;
-                }
-            }
-            if(count === 1)
-                break
-            
-        }
-        
-/*
         // find tab4[i].length most long = max or 
         for(let j = 0; j < tab4.length; j++){
             if(tab4[j][5] !== undefined){
-                console.log(tab4[j])
-                console.log(tab4[j][5])
-                console.log(' ')
-            }j
+
+            }
         }
-  
         // for with 'if' to select word concerned until max
                 
         // sorting
-        /*
         tmp = 0; 
         count = 1;
         while(count !== 0){
             count = 0;
             for(let i = 0; i <tab4.length-1; i++){
                 if(tab4[i] > tab4[i+1]){
-                    console.log(tab4[i])
-                    console.log(tab4[i+1])
-                    console.log('x')
                     tmp = tab4[i];
                     tab4[i] = tab4[i+1];
                     tab4[i+1] = tmp;
                     count++;
                 }
             }
-            console.log(' ')
         }
 
         console.log(tab4)
         // end        
-*/        
-    }
-    sort_dictionary(texte)
-    
-    // processing instruction
-    
-    function ksort(){
-        
+        return true;
     }
     
-    function usort(){
-        
-    }
-    
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX DIVERS XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX */
-    /* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/    
+    /* DIVERS */    
     // return if a var is defined and not null
-    function isset(x){
+    _myLibraryObject.isset = function(x){
         if(x !== null){
             return true
         }
@@ -567,66 +439,16 @@ document.addEventListener('DOMContentLoaded', function library(){
             return false
         }
     }
-    
-    // return nbr float or int / string LC / UP / special char / punct
-    function accurate_typeof(x){
-        
-    }
-        
-    function variant_int(){
-        
-    }
-    
-});
+
+    return _myLibraryObject;
+  }
+
+  // We need that our library is globally accesible, then we save in the window
+  if(typeof(window.myWindowGlobalLibraryName) === 'undefined'){
+    window.myWindowGlobalLibraryName = myLibrary();
+  }
+})(window); // We send the window variable withing our function
 
 
-/*
-
-        // TRY TO SORT TAB WITH ALL POS OF NUMBER IN ARRAY
-
-        // find tab4[i].length most long = max or 
-        for(let j = 0; j < tab4.length; j++){
-            if(tab4[j][5] !== undefined){
-
-            }
-        }
-        
-        // for with 'if' to select word concerned until max
-        
-        // sorting
-        tmp = 0; 
-        count = 1;
-        while(count !== 0){
-            count = 0;
-            for(let i = 0; i <tab4.length-1; i++){
-                if(tab4[i][0] > tab4[i+1][0]){
-                    tmp = tab4[i];
-                    tab4[i] = tab4[i+1];
-                    tab4[i+1] = tmp;
-                    count++;
-                }
-            }
-        }
-        console.log(tab4)
-        // end
-
-
-
-
-
-
-
-        // change all elmt of the array in one number
-        tmp = '';
-        for(let i = 0; i < tab4.length-1; i++){
-            tmp = ''
-            for(let j = 1; j < tab4[i].length; j++){
-                tmp += tab4[i][j] + '';
-                console.log(tmp)
-            }
-            tab4[i] = tab4[i][0] + '.' + tmp;
-            tab4[i] = parseFloat(tab4[i]);
-            console.log(' ')
-        }  
-
-*/
+// Then we can call it using
+console.log(myWindowGlobalLibraryName);
